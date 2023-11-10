@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use \App\Http\Controllers\{PostController, UserListController};
 
 /*
 |--------------------------------------------------------------------------
@@ -14,5 +15,10 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
-});
+    return view('app');
+})
+->name('application');
+
+Route::get('/api/get-all-posts', [PostController::class, 'getAllPosts'])->name('get.allposts');
+Route::get('/api/get-user-lists', [UserListController::class, 'getUserLists'])->name('get.userlists');
+Route::get('/api/search', [PostController::class, 'searchPosts'])->name('get.searchposts');
