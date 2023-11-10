@@ -11,18 +11,21 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('users', function (Blueprint $table) {
+        Schema::create('posts', function (Blueprint $table) {
             $table->uuid('id');
-            $table->string('name');
-            $table->uuid('list_id');
+            $table->string('title');
+            $table->string('content', 1000);
+            $table->uuid('owner_id')->nullable();
+            $table->string('social');
+            $table->string('social_link');
             $table->timestamps();
 
             $table->primary('id');
             $table
-                ->foreign('list_id')
+                ->foreign('owner_id')
                 ->references('id')
-                ->on('userlists')
-                ->onDelete('CASCADE');
+                ->on('users')
+                ->onDelete('SET NULL');
         });
     }
 
@@ -31,6 +34,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('posts');
     }
 };
