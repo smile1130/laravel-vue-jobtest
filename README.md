@@ -2,8 +2,9 @@
 
 ## Built With
 
--   [![Vue][Vue.js]][Vue-url]
--   [![Laravel][Laravel.com]][Laravel-url]
+-   Laravel 10
+-   Vue 3
+-   Tailwind CSS
 
 ## How To Use
 
