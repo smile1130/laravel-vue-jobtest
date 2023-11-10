@@ -33,17 +33,17 @@ class PostController extends Controller
             });
         }
 
-        if ($isFacebook === 'false') {
-            $result = $result->where('social', '!=', 'facebook');
+        if ($isFacebook === 'true') {
+            $result = $result->where('social', 'facebook');
         }
-        if ($isTwitter === 'false') {
-            $result = $result->where('social', '!=', 'twitter');
+        if ($isTwitter === 'true') {
+            $result = $result->where('social', 'twitter');
         }
-        if ($isTiktok === 'false') {
-            $result = $result->where('social', '!=', 'tiktok');
+        if ($isTiktok === 'true') {
+            $result = $result->where('social', 'tiktok');
         }
-        if ($isLinkedin === 'false') {  
-            $result = $result->where('social', '!=', 'linkedin');
+        if ($isLinkedin === 'true') {  
+            $result = $result->where('social', 'linkedin');
         }
 
         if ($startDate) {
