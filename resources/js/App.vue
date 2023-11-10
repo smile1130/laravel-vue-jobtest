@@ -77,7 +77,7 @@
                 <select id="userlists"
                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                     <option selected value="0">Choose a user list</option>
-                    <option v-for="list in userLists" :value="list.id">{{ list.name }}</option>
+                    <option v-for="list in userLists" :value="list.name">{{ list.name }}</option>
                 </select>
             </fieldset>
             <button class="bg-sky-500 text-white py-2 hover:bg-sky-700 active:bg-sky-400" @click="search">
@@ -171,11 +171,14 @@ export default {
             formData.endDate = endDate.value;
             formData.userList = userList.value;
 
-            const formDataJson = JSON.stringify(formData);
-            console.log(formDataJson)
+            // const formDataJson = JSON.stringify(formData);
+            // console.log(formDataJson)
 
-            axios.post('/api/search', formDataJson)
+            axios.get('/api/search', {
+                params: formData,
+            })
                 .then(response => {
+                    console.log(response)
                     this.posts = response.data
                 })
                 .catch(error => {

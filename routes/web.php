@@ -21,4 +21,4 @@ Route::get('/', function () {
 
 Route::get('/api/get-all-posts', [PostController::class, 'getAllPosts'])->name('get.allposts');
 Route::get('/api/get-user-lists', [UserListController::class, 'getUserLists'])->name('get.userlists');
-Route::post('/api/search', [PostController::class, 'searchPosts'])->name('post.searchposts');
+Route::get('/api/search', [PostController::class, 'searchPosts'])->name('get.searchposts');

@@ -13,4 +13,8 @@ class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable, UUIDs;
 
+    public function userlist()
+    {
+        return $this->belongsTo(UserList::class, 'list_id');
+    }
 }
